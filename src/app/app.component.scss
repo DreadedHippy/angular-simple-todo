@@ -1,0 +1,63 @@
+@import '../theme/mixins';
+
+#header {
+  // box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  height: 2rem;
+  padding-left: 1rem;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 0.1);
+}
+
+#body {
+  padding: 1rem;
+  // background-color: rgb(255, 255, 255);
+
+  .top {
+    width: 100%;
+    @include flex(row, $gap: 1rem);
+
+    input {
+      flex: auto;
+      padding: 5px 12px;
+      outline: none;
+      border-radius: 4px;
+      border: 1px solid #053781;
+    }
+
+    #add-todo-btn {
+      @include button(flat, $border-radius: 4px, $padding: 5px 12px);
+    }
+  }
+
+  #main {
+    padding-top: 1rem;
+
+    .todo-item {
+      position: relative;
+      overflow: hidden;
+      span {
+        margin: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 90%;
+        overflow: hidden;
+      }
+      padding: 0.75rem;
+      @include flex(row, $gap: 1rem);
+      border-radius: 8px;
+      border: 1px solid rgb(204, 204, 204);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.delete-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+  @include button('outline', $bg-color:#e44949, $border-radius: 4px, $padding: 2.5px 6px);
+  border-width: 2px;
+}
+
+

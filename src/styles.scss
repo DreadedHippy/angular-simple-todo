@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Inter
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+body {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+  // font-size: 14px
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}

@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use 'sass:string';
+
+$gfonts: (
+    "inter" : "'Inter', sans-serif",
+    // "open": "'Open Sans', sans-serif",
+    // "rob" : "'Roboto', sans-serif"
+);
+
+@mixin button($type, $bg-color: #053781, $border-color: $bg-color, $text-color: #fff, $border-radius: 0, $padding){
+  @if $type == "flat" {
+    border: none;
+    background-color: $bg-color;
+  } @else if $type == "outline" {
+    border: 0.5px solid $border-color;
+    background-color: transparent;
+  }
+  border-radius: $border-radius;
+  padding: $padding;
+  font-weight: 500;
+  color: $text-color;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in srgb, $bg-color 80%, #fff 20%);
+  }
+}
+
+@mixin flex($direction, $justify: flex-start, $align: center, $gap: normal normal, $wrap: nowrap ) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  align-items: $align;
+}
+
+@mixin debug($color: red) {
+  border: 1px solid $color;
+}
+
+@function get-font($font) {
+  @return string.unquote(map.get($gfonts, $font));
+}
+
+
+@mixin font($family: inter, $weight: 400 ) {
+  font-family: get-font($family);
+  font-weight: $weight;
+}
